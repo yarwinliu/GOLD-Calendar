@@ -52,7 +52,7 @@ everyclass.insert(0, mon_html)
 #print(everyclass.pop(0))
 
 classes_each_day = []
-
+DOW = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 #adds class info (subject, location, start time to end time) to classnames list as strings
 for tag_element in everyclass:
    text_element = tag_element.text
@@ -62,14 +62,22 @@ for tag_element in everyclass:
 # classes_each_day is a 2d array
 # removes empty objects
 element_to_remove = ""
-for day in classes_each_day:
-    while element_to_remove in day:
-        day.remove(element_to_remove)
+for day_list in classes_each_day:
+    for elements in day_list:
+        for day in DOW:
+            if day in elements:
+                day_list.remove(day)
 
-csv_file_path = 'Schedule.csv'
+    while element_to_remove in day_list:
+        day_list.remove(element_to_remove)
 
-with open(csv_file_path, "w", newline='', encoding = 'utf-8') as csv_file:
+print(classes_each_day)
 
-    csv_writer = csv.writer(csv_file)
-    csv_writer.writerows(classes_each_day)
+
+# csv_file_path = 'Schedule.csv'
+
+# with open(csv_file_path, "w", newline='', encoding = 'utf-8') as csv_file:
+
+#     csv_writer = csv.writer(csv_file)
+#     csv_writer.writerows(classes_each_day)
 
