@@ -15,14 +15,16 @@ parse subject, start date, start time and end time, location into csv file
 
 #classes 'section' of html file
 classes = soup.find(id = 'pageContent_eventsgroupM')
+mondayclasses = soup.find(id = 'pageContent_events')
 
 # all instances of li in classes 'section'
-every_class = classes.find_next_siblings('li')
-every_class.insert(0, classes.find_next('li'))
 
-# monday: classes.find_next('li')
-# tuesday-friday: classes.find_next_siblings('li')
+mon = mondayclasses.find_next('li')
+tues2fri = classes.find_next_siblings('li')
+
+everyclass = tues2fri
+everyclass.insert(0, mon)
 
 #prints out subject, location, start time to end time
-for info in every_class:
+for info in everyclass:
     print(info.text)
