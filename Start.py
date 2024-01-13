@@ -25,15 +25,23 @@ tues2fri = classes.find_next_siblings('li')
 everyclass = tues2fri
 everyclass.insert(0, mon)
 
-#test if chunk of text is an element in the list -> true
+#test if chunk of text is an element in the list -> each day and its classes are an element
 #print(everyclass.pop(0))
 
-classnames = []
+classes_each_day = []
 
-#adds class info (subject, location, start time to end time) to classnames list as text
+#adds class info (subject, location, start time to end time) to classnames list as strings
 for tag_element in everyclass:
-   classnames.append(tag_element.text)
-   classnames.strip()
-   
+   p = tag_element.text
+   x = p.split("\n")
+   classes_each_day.append(x)
 
-print(classnames)
+# classes_each_day is a 2d array
+# removes empty objects
+element_to_remove = ""
+for day in classes_each_day:
+    while element_to_remove in day:
+        day.remove(element_to_remove)
+
+
+print(classes_each_day)
