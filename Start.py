@@ -25,6 +25,15 @@ tues2fri = classes.find_next_siblings('li')
 everyclass = tues2fri
 everyclass.insert(0, mon)
 
-#prints out subject, location, start time to end time
-for info in everyclass:
-    print(info.text)
+#test if chunk of text is an element in the list -> true
+#print(everyclass.pop(0))
+
+classnames = []
+
+#adds class info (subject, location, start time to end time) to classnames list as text
+for tag_element in everyclass:
+   classnames.append(tag_element.text)
+   classnames.strip()
+   
+
+print(classnames)
