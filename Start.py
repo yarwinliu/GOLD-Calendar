@@ -53,17 +53,19 @@ for day_list in classes_each_day:
                 day_list.remove(day)
         #
 
+# in classes_each_day array, separate each class and its info into its own subarray
 modified_array = [
     [subarray[i:i+3] for i in range(0, len(subarray), 3)]
     for subarray in classes_each_day
 ]
+# print the modified array
+# for subarray in modified_array:
+#     print(subarray)
 
-# Print the modified array
-for subarray in modified_array:
-    print(subarray)
-    
+#flatten 3d array to 2d array to display on separate rows for csv file   
+flat_list = [elem for sublist1 in modified_array for elem in sublist1]
 
-#print(classes_each_day)
+print(flat_list)
 
 #parse info into csv file
 csv_file_path = 'Schedule.csv'
@@ -71,4 +73,4 @@ csv_file_path = 'Schedule.csv'
 with open(csv_file_path, "w", newline='', encoding = 'utf-8') as csv_file:
 
     csv_writer = csv.writer(csv_file)
-    csv_writer.writerows(subarray)
+    csv_writer.writerows(flat_list)
