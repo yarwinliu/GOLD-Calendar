@@ -9,6 +9,10 @@ with open("schedule_yarwin.html") as fp:
 # <html><head></head><body>Sacré bleu!</body></html>
 
 
-print(soup.prettify())
+#print(soup.prettify()) #prints out the html
+print("title:", soup.title)
+#print("class-item:", soup.class-item)
+tag = soup.div
+print("tag:", tag.attrs)
 
-print("hello world")
+

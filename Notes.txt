@@ -1,0 +1,14 @@
+- repeat 10 times
+- location on Google Maps
+- put the classes on different calendars
+- add finals 
+   - look at myschedule page
+- scrape ucsb start date
+- +"section" for sections
+    - maybe look at myschedule page
+
+
+- subject
+- start date
+- start time, end time
+- location
