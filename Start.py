@@ -13,11 +13,19 @@ parse subject, start date, start time and end time, location into csv file
 
 """
 
-monday_classes = soup.find(id ="pageContent_eventsgroupM")
+#monday 'section' of html file
+monday_classes = soup.find(id = 'pageContent_eventsgroupM')
 
-for c in soup.find_all('li'):
-    if c != None:
-        print(c.get('data-content'))
+"""
+iterates through entire html file to find class names 
+-> we are trying to iterate through only the monday section
+"""
+#for c in soup.find_all('li'):
+
+    #print(c.get('data-content'))
 
 
-#print(monday_classes)
+next_paragraphs = monday_classes.find_next('li')
+
+for paragraph in next_paragraphs:
+    print(paragraph.text)
