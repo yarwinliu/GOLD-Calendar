@@ -7,9 +7,7 @@ need:
  end time, 
  location,
 
-
 2 variables: all monday class (list), monday time
-
 week = [monday, tuesday, wednesday, thursday, friday]
 
 for day in week,
@@ -104,9 +102,6 @@ flat_list = [elem for sublist1 in modified_array for elem in sublist1]
 #### increment date by 7 by multiplying week_num by 7 before calling
 
 print(classes_each_day)
-
-
-
 
 # csv_file_path = 'Schedule.csv'
 

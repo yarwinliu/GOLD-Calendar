@@ -1,5 +1,12 @@
-"['WRIT     50E ', 'ILP 3103', '12:00 PM-01:50 PM']","['ECE       1A ', 'NH 1006', '02:00 PM-02:50 PM']"
-"['MATH      4A ', 'IV THEA1', '08:00 AM-09:15 AM']","['PHYS      7A ', 'BRDA 1610', '12:30 PM-01:45 PM']","['CMPSC    16  ', 'ILP 1101', '03:30 PM-04:45 PM']"
-"['CMPSC    16  ', 'PHELP 3525', '10:00 AM-10:50 AM']","['WRIT     50E ', 'ILP 3103', '12:00 PM-01:50 PM']","['MATH      4A ', 'ILP 3205', '06:00 PM-06:50 PM']"
-"['MATH      4A ', 'IV THEA1', '08:00 AM-09:15 AM']","['PHYS      7A ', 'BRDA 1610', '12:30 PM-01:45 PM']","['CMPSC    16  ', 'ILP 1101', '03:30 PM-04:45 PM']","['PHYS      7A ', 'ILP 2207', '05:00 PM-06:50 PM']"
-
+WRIT     50E ,12:00,13:50,False,Description,ILP 3103,False
+ECE       1A ,14:00,14:50,False,Description,NH 1006,False
+MATH      4A ,08:00,09:15,False,Description,IV THEA1,False
+PHYS      7A ,12:30,13:45,False,Description,BRDA 1610,False
+CMPSC    16  ,15:30,16:45,False,Description,ILP 1101,False
+CMPSC    16  ,10:00,10:50,False,Description,PHELP 3525,False
+WRIT     50E ,12:00,13:50,False,Description,ILP 3103,False
+MATH      4A ,18:00,18:50,False,Description,ILP 3205,False
+MATH      4A ,08:00,09:15,False,Description,IV THEA1,False
+PHYS      7A ,12:30,13:45,False,Description,BRDA 1610,False
+CMPSC    16  ,15:30,16:45,False,Description,ILP 1101,False
+PHYS      7A ,17:00,18:50,False,Description,ILP 2207,False
