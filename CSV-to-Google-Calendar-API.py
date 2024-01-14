@@ -153,11 +153,11 @@ def insert_events(color):
         else:
             adjust_timezone = 8 # (8 is for -8), (3 is for UTC-3)         ### CHANGE TO YOUR OWN TIMEZONE, COULD BE -n, +n, or none, BASED ON UTC TIME (0)
             
-            print("start time:", adjust_time(int(fstart_time[i]), adjust_timezone), "\n",
-                  "end time:", adjust_time(int(fend_time[i]), adjust_timezone), "\n",
-                  "end time:", int(fend_time[i]), "to", adjust_timezone
-                  )
-            
+            # print("start time:", adjust_time(int(fstart_time[i]), adjust_timezone), "\n",
+            #       "end time:", adjust_time(int(fend_time[i]), adjust_timezone), "\n",
+            #       "end time:", int(fend_time[i]), "to", adjust_timezone
+            #       )
+            print("adding: ", subject[i])
             
             event_request_body = {
             'start':{
