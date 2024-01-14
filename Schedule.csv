@@ -1,13 +1,13 @@
-ASTRO     1  ,02:00 PM-03:15 PM,BRDA 1610
-MATH      4A ,08:00 AM-09:15 AM,IV THEA1
-PHYS     21  ,09:30 AM-10:45 AM,BRDA 1640
-INT      86VL,11:00 AM-11:50 AM,HSSB 1236
-PHYS     29  ,02:00 PM-03:15 PM,ARTS 1356
-ASTRO     1  ,02:00 PM-03:15 PM,BRDA 1610
-MATH      4A ,06:00 PM-06:50 PM,ILP 3205
-MATH      4A ,08:00 AM-09:15 AM,IV THEA1
-PHYS     21  ,09:30 AM-10:45 AM,BRDA 1640
-PHYS     29  ,03:00 PM-03:50 PM,ILP 3310
-ASTRO     1  ,11:00 AM-11:50 AM,GIRV 1112
-INT      86TK,01:00 PM-01:50 PM,ILP 3209
-PHYS     21  ,03:00 PM-03:50 PM,GIRV 2129
+ASTRO     1  ,14:00,15:15,False,Description,BRDA 1610,False
+MATH      4A ,08:00,09:15,False,Description,IV THEA1,False
+PHYS     21  ,09:30,10:45,False,Description,BRDA 1640,False
+INT      86VL,11:00,11:50,False,Description,HSSB 1236,False
+PHYS     29  ,14:00,15:15,False,Description,ARTS 1356,False
+ASTRO     1  ,14:00,15:15,False,Description,BRDA 1610,False
+MATH      4A ,18:00,18:50,False,Description,ILP 3205,False
+MATH      4A ,08:00,09:15,False,Description,IV THEA1,False
+PHYS     21  ,09:30,10:45,False,Description,BRDA 1640,False
+PHYS     29  ,15:00,15:50,False,Description,ILP 3310,False
+ASTRO     1  ,11:00,11:50,False,Description,GIRV 1112,False
+INT      86TK,13:00,13:50,False,Description,ILP 3209,False
+PHYS     21  ,15:00,15:50,False,Description,GIRV 2129,False
