@@ -1,7 +1,7 @@
 from functions import *
 import csv
 
-description_list = ["Subject", "Start Date", "Start Time", "End Time", "All Day Event", "Description", "Location", "Private"]
+description_list = ["Subject", "Start Date", "Start Time","End Date", "End Time", "All Day Event", "Description", "Location", "Private"]
 quarter = []
 
 for weeks in range(0,70,7):
