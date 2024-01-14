@@ -53,6 +53,7 @@ everyclass.insert(0, mon_html)
 
 classes_each_day = []
 DOW = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
 #adds class info (subject, location, start time to end time) to classnames list as strings
 for tag_element in everyclass:
    text_element = tag_element.text
@@ -66,11 +67,22 @@ for day_list in classes_each_day:
     #removes empty objects from list
     while element_to_remove in day_list:
         day_list.remove(element_to_remove)
+
     #gets rid of mon-fri
     for elements in day_list:
         for day in DOW:
             if day in elements:
                 day_list.remove(day)
+        
+        for i in range(len(day_list)):
+            day_list[i:i+1] = day_list[i].split('-')
+
+
+
+
+
+
+
 
 # in classes_each_day array, separate each class and its info into its own subarray
 modified_array = [
