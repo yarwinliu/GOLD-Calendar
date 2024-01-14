@@ -51,22 +51,23 @@ for day_list in classes_each_day:
         for day in DOW:
             if day in elements:
                 day_list.remove(day)
-        #
+        #add start and end date, and start and end times b/c they depend on day of week
 
 # in classes_each_day array, separate each class and its info into its own subarray
 modified_array = [
+    #change to 4s once split time !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     [subarray[i:i+3] for i in range(0, len(subarray), 3)]
     for subarray in classes_each_day
 ]
-# print the modified array
-# for subarray in modified_array:
-#     print(subarray)
-
 #flatten 3d array to 2d array to display on separate rows for csv file   
 flat_list = [elem for sublist1 in modified_array for elem in sublist1]
 
-print(flat_list)
+#move locations to the end of each subarray for csv formatting
+for subarray in flat_list:
+    location = subarray.pop(1)
+    subarray.append(location)
 
+print(flat_list)
 #parse info into csv file
 csv_file_path = 'Schedule.csv'
 
