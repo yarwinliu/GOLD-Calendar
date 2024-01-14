@@ -127,6 +127,7 @@ def one_week():
     #flatten 3d array to 2d array to display on separate rows for csv file   
     flat_list = [elem for sublist1 in modified_array for elem in sublist1]
     #rearrange each subarray for csv formatting
+    
     for subarray in flat_list:
         #fix once start/end times/dates are added
         location = subarray.pop(1)
