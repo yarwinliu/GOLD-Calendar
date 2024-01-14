@@ -34,14 +34,6 @@ def format_date(x, weeks):
         month += 1
 
 
-
-    # if day > month_dic[month]:
-    #     counter = month
-    #     month += 1
-    #     while counter > 0:
-    #         day = day - month_dic[counter]
-    #         counter-=1
-
     if day < 10:
         sday = "0"+ str(day)
     else:
@@ -60,7 +52,6 @@ def format_date(x, weeks):
     date = smonth + "/" + sday + "/" + syear
 
     return date
-
 
 def standard_to_military(time_str):
     dt_object = datetime.strptime(time_str, "%I:%M %p")
