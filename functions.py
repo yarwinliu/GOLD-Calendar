@@ -1,11 +1,12 @@
 from bs4 import BeautifulSoup as bs
 import csv
 from datetime import datetime
+import re
 
 with open("megan_schedule.html") as fp:
     soup = bs(fp, "html.parser")
 
-def format_date(x):
+def format_date(x, weeks):
     """
     returns list depending on param
     """
@@ -25,21 +26,21 @@ def format_date(x):
     }
 
     month = 1
-    day = 8 + x
+    day = 8 + weeks + x
     year = 24
 
-    if day >= month_dic[month]:
+    if day > month_dic[month]:
+        counter = month
         month += 1
-        p = month
-        while p > 0:
-            day = day - month_dic[p]
-            p-=1
+        while counter > 0:
+            day = day - month_dic[counter]
+            counter-=1
 
-    if day <= 10:
+    if day < 10:
         sday = "0"+ str(day)
     else:
         sday = str(day)
-    if month <= 10:
+    if month < 10:
         smonth = "0"+ str(month)
     else:
         smonth = str(month)
@@ -52,7 +53,7 @@ def format_date(x):
 
     date = smonth + "/" + sday + "/" + syear
 
-    return print(date)
+    return date
 
 
 def standard_to_military(time_str):
@@ -61,7 +62,7 @@ def standard_to_military(time_str):
 
     return military_time
 
-def one_week():
+def one_week(weeks):
 
 #classes 'section' of html file
     classes = soup.find(id = 'pageContent_eventsgroupM')
@@ -89,7 +90,7 @@ def one_week():
     # classes_each_day is a 2d array
 
     element_to_remove = ""
-    for day_list in classes_each_day:
+    for idx, day_list in enumerate(classes_each_day):
         # removes empty objects
         while element_to_remove in day_list:
             day_list.remove(element_to_remove)
@@ -106,15 +107,22 @@ def one_week():
             for i in range(len(day_list)):
                 day_list[i:i+1] = day_list[i].split('-')
 
-    print(classes_each_day)
 
 
     # in classes_each_day array, separate each class and its info into its own subarray
     modified_array = [
-        #change to 8s once all elements r in !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        #change to one less than number of elements
         [subarray[i:i+4] for i in range(0, len(subarray), 4)]
         for subarray in classes_each_day
     ]
+
+    # add dates at index 1 and 3 in each class for modified array
+    for index, weekday in enumerate(modified_array):
+        firstweekdates = format_date(index, weeks)
+        for classes in weekday:
+            classes.insert(2, firstweekdates)
+            classes.insert(4, firstweekdates)
+
     #flatten 3d array to 2d array to display on separate rows for csv file   
     flat_list = [elem for sublist1 in modified_array for elem in sublist1]
     #rearrange each subarray for csv formatting
@@ -125,7 +133,8 @@ def one_week():
         description = subarray.append("Description")
         subarray.append(location)
         private = subarray.append(False)
+        
+        #fix white space in subject
+        subarray[0] = re.sub(r'\s+',' ', subarray[0]).rstrip()
 
     return flat_list
-
-print(one_week())
