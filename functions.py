@@ -1,6 +1,6 @@
 from datetime import datetime
 
-def date_calculator(week_number):
+def format_date(x):
     """
     returns list depending on param
     """
@@ -20,7 +20,7 @@ def date_calculator(week_number):
     }
 
     month = 1
-    day = 8 + week_number * 7
+    day = 8 + x
     year = 24
 
     if day >= month_dic[month]:
@@ -55,6 +55,3 @@ def standard_to_military(time_str):
     military_time = dt_object.strftime("%H:%M")
 
     return military_time
-
-
-print(standard_to_military("01:15 PM"))

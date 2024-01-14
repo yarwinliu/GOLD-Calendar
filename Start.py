@@ -34,7 +34,7 @@ from functions import *
 
 with open("megan_schedule.html") as fp:
     soup = bs(fp, "html.parser")
-
+x = 0
 # # ------------------------------------------------------------------------------
     
 #classes 'section' of html file
@@ -55,6 +55,7 @@ everyclass.insert(0, mon_html)
 classes_each_day = []
 DOW = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 
+
 #adds class info (subject, location, start time to end time) to classnames list as strings
 for tag_element in everyclass:
    text_element = tag_element.text
@@ -64,29 +65,28 @@ for tag_element in everyclass:
 # classes_each_day is a 2d array
 # removes empty objects
 element_to_remove = ""
+
 for day_list in classes_each_day:
+    
     #removes empty objects from list
     while element_to_remove in day_list:
         day_list.remove(element_to_remove)
-
     #gets rid of mon-fri
     for index, elements in enumerate(day_list):
         for day in DOW:
             if day in elements:
                 day_list.remove(day)
+        #change to military time
         if "AM" in elements or "PM" in elements:
             day_list[index] = standard_to_military(elements)
-
         #split times into start/end
         for i in range(len(day_list)):
             day_list[i:i+1] = day_list[i].split('-')
-
-
-
-
-
-
-
+    #insert start and end dates
+    #increment day by 1
+        if ":" in elements:
+            day_list.insert(index-1, format_date(x))
+    x = x+1
 
 # in classes_each_day array, separate each class and its info into its own subarray
 modified_array = [
@@ -100,7 +100,12 @@ modified_array = [
 #flatten 3d array to 2d array to display on separate rows for csv file   
 flat_list = [elem for sublist1 in modified_array for elem in sublist1]
 
+#### where x 10 ing it
+#### increment date by 7 by multiplying week_num by 7 before calling
+
 print(classes_each_day)
+
+
 
 
 # csv_file_path = 'Schedule.csv'
@@ -110,3 +115,4 @@ print(classes_each_day)
 #     csv_writer = csv.writer(csv_file)
 #     csv_writer.writerows(modified_array)
 
+print("jpoji")
