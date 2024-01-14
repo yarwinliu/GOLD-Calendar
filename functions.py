@@ -1,3 +1,5 @@
+from datetime import datetime
+
 def date_calculator(week_number):
     """
     returns list depending on param
@@ -28,8 +30,6 @@ def date_calculator(week_number):
             day = day - month_dic[p]
             p-=1
 
-
-
     if day <= 10:
         sday = "0"+ str(day)
     else:
@@ -45,12 +45,16 @@ def date_calculator(week_number):
     else:
         syear = str(year)
 
-
     date = smonth + "/" + sday + "/" + syear
-
-
 
     return date
 
-print(date_calculator(9))
 
+def standard_to_military(time_str):
+    dt_object = datetime.strptime(time_str, "%I:%M %p")
+    military_time = dt_object.strftime("%H:%M")
+
+    return military_time
+
+
+print(standard_to_military("01:15 PM"))

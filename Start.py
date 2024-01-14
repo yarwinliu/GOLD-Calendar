@@ -30,6 +30,7 @@ for loop: for x in class_names,
  """
 import csv
 from bs4 import BeautifulSoup as bs
+from functions import *
 
 with open("megan_schedule.html") as fp:
     soup = bs(fp, "html.parser")
@@ -69,11 +70,14 @@ for day_list in classes_each_day:
         day_list.remove(element_to_remove)
 
     #gets rid of mon-fri
-    for elements in day_list:
+    for index, elements in enumerate(day_list):
         for day in DOW:
             if day in elements:
                 day_list.remove(day)
-        
+        if "AM" in elements or "PM" in elements:
+            day_list[index] = standard_to_military(elements)
+
+        #split times into start/end
         for i in range(len(day_list)):
             day_list[i:i+1] = day_list[i].split('-')
 
