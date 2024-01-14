@@ -98,6 +98,11 @@ for calendar_list_entry in calendar_list['items']:
         id = calendar_list_entry['id'] 
 
 
+def adjust_time(time, adjust):
+    adjusted = time+adjust
+    if(adjusted>=24):
+        adjusted-=24
+    return adjusted
 
 # insert events to google calendar function
 def insert_events(color):
@@ -144,14 +149,14 @@ def insert_events(color):
             x += 1
 
         else:
-            adjust_timezone = 3 # (this is for UTC-3)         ### CHANGE TO YOUR OWN TIMEZONE, COULD BE -n, +n, or none, BASED ON UTC TIME (0)
+            adjust_timezone = 8 # (8 is for -8), (3 is for UTC-3)         ### CHANGE TO YOUR OWN TIMEZONE, COULD BE -n, +n, or none, BASED ON UTC TIME (0)
             event_request_body = {
             'start':{
-                'dateTime': convert_to_RFC_datetime(int(start_year[i]), int(start_month[i]), int(start_day[i]), int(fstart_time[i]) + adjust_timezone, 0),
+                'dateTime': convert_to_RFC_datetime(int(start_year[i]), int(start_month[i]), int(start_day[i]), adjust_time(int(fstart_time[i]), adjust_timezone) ,0), #int(fstart_time[i]) + adjust_timezone,
                 'timeZone': 'America/Sao_Paulo',
             },
             'end':{
-                'dateTime': convert_to_RFC_datetime(int(end_year[i]), int(end_month[i]), int(end_day[i]), int(fend_time[i]) + adjust_timezone, 0),
+                'dateTime': convert_to_RFC_datetime(int(end_year[i]), int(end_month[i]), int(end_day[i]), adjust_time(int(fend_time[i]), adjust_timezone), 0), #int(fend_time[i]) + adjust_timezone
                 'timeZone': 'America/Sao_Paulo',
             },
             'summary': subject[i],
