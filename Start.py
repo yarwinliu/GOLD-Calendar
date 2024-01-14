@@ -63,13 +63,26 @@ for tag_element in everyclass:
 # removes empty objects
 element_to_remove = ""
 for day_list in classes_each_day:
+    #removes empty objects from list
+    while element_to_remove in day_list:
+        day_list.remove(element_to_remove)
+    #gets rid of mon-fri
     for elements in day_list:
         for day in DOW:
             if day in elements:
                 day_list.remove(day)
 
-    while element_to_remove in day_list:
-        day_list.remove(element_to_remove)
+# in classes_each_day array, separate each class and its info into its own subarray
+modified_array = [
+    [subarray[i:i+3] for i in range(0, len(subarray), 3)]
+    for subarray in classes_each_day
+]
+# print the modified array
+# for subarray in modified_array:
+#     print(subarray)
+
+#flatten 3d array to 2d array to display on separate rows for csv file   
+flat_list = [elem for sublist1 in modified_array for elem in sublist1]
 
 print(classes_each_day)
 
@@ -79,5 +92,5 @@ print(classes_each_day)
 # with open(csv_file_path, "w", newline='', encoding = 'utf-8') as csv_file:
 
 #     csv_writer = csv.writer(csv_file)
-#     csv_writer.writerows(classes_each_day)
+#     csv_writer.writerows(modified_array)
 
