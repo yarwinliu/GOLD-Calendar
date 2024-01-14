@@ -38,7 +38,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 VIRTUAL_ENV="C:\Users\yarwin\workplace\GitHub Repos\GOLD-Calendar\GOLDcalendar"
+=======
+VIRTUAL_ENV="C:\Users\yarwin\workplace\GitHub-Repos\GOLD-Calendar\GOLDcalendar"
+>>>>>>> 89dd605113a36bcaae9c11e076c5e41be2bc4a2b
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
