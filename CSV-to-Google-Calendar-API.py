@@ -295,7 +295,7 @@ for i in range(1, max_rows+1):
 
 
 for i in range(0, max_rows):
-    all_day_event[i] = all_day_event[i].upper()
+    all_day_event[i] = str(all_day_event[i]).upper()
 
 
 
@@ -320,7 +320,7 @@ for i in range(1, max_rows+1):
 
 # adapt private to fit json
 for i in range(0, max_rows):
-    is_private[i] = is_private[i].upper()
+    is_private[i] = str(is_private[i]).upper()
     if ("TRUE" or "True" or "true") in is_private[i]:
         is_private[i] = "private"
     else:
