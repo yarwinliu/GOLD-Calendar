@@ -1,6 +1,8 @@
-Subject, Start Date, Start Time, End Time, Location
-CMPSC 64, 01/08/2024, 8:00 AM, 9:15 AM, BUCHN 1920
-CMPSC 111, 01/09/2024, 9:00 AM, 9:50 AM, PHELP 1444
-CMPSC 111, 01/10/2024, 12:30 PM, 1:45 PM, TD-W 1701
-MUS A 34, 01/11/2024, 6:00 PM, 7:30 PM, MUSIC LLCH
-CMPSC 130B, 01/12/2024, 2:00 PM, 2:50 PM, ILP 3107
+Subject,Start Date,Start Time,End Date,End Time,All Day Event,Description,Location,Private
+WRIT 50E,01/08/24,12:00,01/08/24,13:50,False,Description,ILP 3103,False
+ECE 1A,01/08/24,14:00,01/08/24,14:50,False,Description,NH 1006,False
+MATH 4A,01/09/24,08:00,01/09/24,09:15,False,Description,IV THEA1,False
+PHYS 7A,01/09/24,12:30,01/09/24,13:45,False,Description,BRDA 1610,False
+CMPSC 16,01/09/24,15:30,01/09/24,15:45,False,Description,ILP 1101,False
+CMPSC 16,01/10/24,10:00,01/10/24,10:50,False,Description,PHELP 3525,False
+WRIT 50E,01/10/24,12:00,01/10/24,13:50,False,Description,ILP 3103,False

@@ -98,6 +98,8 @@ for calendar_list_entry in calendar_list['items']:
         id = calendar_list_entry['id'] 
 
 
+##TODO: bug that times from before 16:00 to after 16:00, the end date should be the next date because of timem conversion
+## 16+8=0 (e.g. 15 to 16 would be 23 to 0)
 def adjust_time(time, adjust):
     adjusted = time+adjust
     if(adjusted>=24):
@@ -150,6 +152,13 @@ def insert_events(color):
 
         else:
             adjust_timezone = 8 # (8 is for -8), (3 is for UTC-3)         ### CHANGE TO YOUR OWN TIMEZONE, COULD BE -n, +n, or none, BASED ON UTC TIME (0)
+            
+            print("start time:", adjust_time(int(fstart_time[i]), adjust_timezone), "\n",
+                  "end time:", adjust_time(int(fend_time[i]), adjust_timezone), "\n",
+                  "end time:", int(fend_time[i]), "to", adjust_timezone
+                  )
+            
+            
             event_request_body = {
             'start':{
                 'dateTime': convert_to_RFC_datetime(int(start_year[i]), int(start_month[i]), int(start_day[i]), adjust_time(int(fstart_time[i]), adjust_timezone) ,0), #int(fstart_time[i]) + adjust_timezone,
@@ -187,7 +196,7 @@ all_day_event_true_end = []
 
 # convert csv file to excel
 if not os.path.exists('excel_file.xlsx'):
-    read_file = pd.read_csv('csv_file.csv')                   # YOU MAY NEED TO DECLARE THE SPECIFIC ENCODING -> https://docs.python.org/3.7/library/codecs.html#standard-encodings
+    read_file = pd.read_csv('testSchedule.csv')                   # YOU MAY NEED TO DECLARE THE SPECIFIC ENCODING -> https://docs.python.org/3.7/library/codecs.html#standard-encodings
     read_file.to_excel('excel_file.xlsx', index = None, header = True)
 
 
@@ -328,7 +337,7 @@ for i in range(0, max_rows):
 
 
 # insert events(color) ---> check available colors here => https://lukeboyle.com/blog/posts/google-calendar-api-color-id
-insert_events(11)    
+insert_events(7)    
 
 
 
