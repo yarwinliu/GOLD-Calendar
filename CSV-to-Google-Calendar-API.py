@@ -196,7 +196,7 @@ all_day_event_true_end = []
 
 # convert csv file to excel
 if not os.path.exists('excel_file.xlsx'):
-    read_file = pd.read_csv('testSchedule.csv')                   # YOU MAY NEED TO DECLARE THE SPECIFIC ENCODING -> https://docs.python.org/3.7/library/codecs.html#standard-encodings
+    read_file = pd.read_csv('Schedule.csv')                   # YOU MAY NEED TO DECLARE THE SPECIFIC ENCODING -> https://docs.python.org/3.7/library/codecs.html#standard-encodings
     read_file.to_excel('excel_file.xlsx', index = None, header = True)
 
 
