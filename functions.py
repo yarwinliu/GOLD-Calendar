@@ -29,12 +29,18 @@ def format_date(x, weeks):
     day = 8 + weeks + x
     year = 24
 
-    if day > month_dic[month]:
-        counter = month
+    while day > month_dic[month]:
+        day -= month_dic[month]
         month += 1
-        while counter > 0:
-            day = day - month_dic[counter]
-            counter-=1
+
+
+
+    # if day > month_dic[month]:
+    #     counter = month
+    #     month += 1
+    #     while counter > 0:
+    #         day = day - month_dic[counter]
+    #         counter-=1
 
     if day < 10:
         sday = "0"+ str(day)
@@ -138,3 +144,16 @@ def one_week(weeks):
         subarray[0] = re.sub(r'\s+',' ', subarray[0]).rstrip()
 
     return flat_list
+def add_header_to_csv(file_path, header_list):
+    # Read existing content from the CSV file
+    with open(file_path, 'r', newline='', encoding='utf-8') as csv_file:
+        reader = csv.reader(csv_file)
+        existing_data = list(reader)
+
+    # Insert the new header at the beginning
+    existing_data.insert(0, header_list)
+
+    # Write the updated content back to the CSV file
+    with open(file_path, 'w', newline='', encoding='utf-8') as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerows(existing_data)
