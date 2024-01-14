@@ -125,7 +125,7 @@ def insert_events(color):
                 'description': description[i],
                 'location': location[i],
                 'colorId': color,
-                'visibility': is_private[i]
+                'visibility': is_private[i] 
                 #'attendees':[
                 #    {
                 #        'email': '',
