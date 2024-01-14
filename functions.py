@@ -6,7 +6,7 @@ import re
 with open("courtneys_schedule.html") as fp:
     soup = bs(fp, "html.parser")
 
-def format_date(x):
+def format_date(x, weeks):
     """
     returns list depending on param
     """
@@ -26,15 +26,12 @@ def format_date(x):
     }
 
     month = 1
-    day = 8 + x
+    day = 8 + weeks + x
     year = 24
 
-    if day >= month_dic[month]:
+    if day > month_dic[month]:
+        day = day - month_dic[month]
         month += 1
-        p = month
-        while p > 0:
-            day = day - month_dic[p]
-            p-=1
 
     if day < 10:
         sday = "0"+ str(day)
@@ -62,7 +59,7 @@ def standard_to_military(time_str):
 
     return military_time
 
-def one_week():
+def one_week(weeks):
 
 #classes 'section' of html file
     classes = soup.find(id = 'pageContent_eventsgroupM')
@@ -119,7 +116,7 @@ def one_week():
 
     # add dates at index 1 and 3 in each class for modified array
     for index, weekday in enumerate(modified_array):
-        firstweekdates = format_date(index)
+        firstweekdates = format_date(index, weeks)
         for classes in weekday:
             classes.insert(2, firstweekdates)
             classes.insert(4, firstweekdates)
@@ -140,5 +137,3 @@ def one_week():
         subarray[0] = re.sub(r'\s+',' ', subarray[0]).rstrip()
 
     return flat_list
-
-print(one_week())
