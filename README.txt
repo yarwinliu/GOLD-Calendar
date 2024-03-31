@@ -1,5 +1,4 @@
 INSTRUCTIONS FOR USE
-
 Prerequisites:
 - Windows computer
 - Python
@@ -17,9 +16,26 @@ Prerequisites:
     f. paste into the file called schedule.html of GOLD-Calendar 
 2. run main.py (puts tgt the html to csv and csv to calendar)
 
+
 ISSUES
 - in html to csv, the end date col is missing
 
 TESTING
 - TESTcsv_file.csv and TESTexcel_file.xlsx demonstrate expected behavior (for csv_file.csv and excel_file.xlsx) when main.py is run
 - megan_schedule.html and megan_schedule.csv are also expected behavior (for html to csv)
+
+DEVELOPMENT NOTES
+- repeat 10 times
+- location on Google Maps
+- put the classes on different calendars
+- add finals 
+   - look at myschedule page
+- scrape ucsb start date
+- +"section" for sections
+    - maybe look at myschedule page
+
+
+- subject
+- start date
+- start time, end time
+- location
